@@ -1,0 +1,14 @@
+.message-form__inner {
+  background: white; }
+
+trix-editor {
+  padding: 12px 8px;
+  outline: 0; }
+
+trix-editor:empty:not(:focus)::before {
+  color: #ccc; }
+
+body .message-form--btn {
+  float: right;
+  display: none;
+  margin-top: 10px; }

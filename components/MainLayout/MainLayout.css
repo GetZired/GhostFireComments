@@ -1,0 +1,58 @@
+.ghost-fire-comments__container {
+  max-width: 840px;
+  margin: 0 auto; }
+
+.ghost-fire-comments__container blockquote {
+  margin: 0 0 0 0.3em;
+  padding: 0 0 0 0.6em;
+  border-left: 0.3em solid var(--puregrey);
+  font-size: 18px;
+  font-weight: bold;
+  font-style: italic; }
+
+.ghost-fire-comments__messages {
+  padding: 20px 0 0 9%; }
+  @media all and (max-width: 574px) {
+    .ghost-fire-comments__messages {
+      padding: 0; } }
+
+.ghost-fire-comments-heading-totals,
+.ghost-fire-comments-heading {
+  display: flex;
+  align-items: center; }
+
+.ghost-fire-comments-header--count {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  background: var(--puregrey);
+  border-radius: 100%;
+  margin-right: 10px; }
+
+.ghost-fire-comments-header--count {
+  color: white;
+  justify-content: center;
+  align-items: center;
+  font-size: 28px;
+  font-weight: bold; }
+
+.ghost-fire-comments-heading {
+  position: relative; }
+
+.ghost-fire-comments-heading-totals {
+  background: var(--white);
+  position: relative;
+  z-index: 9;
+  width: 200px; }
+
+.ghost-fire-comments-heading h3 {
+  margin: 0;
+  font-weight: bold;
+  font-size: 22px;
+  color: var(--puregrey); }
+
+.ghost-fire-comments-heading--dash {
+  display: block;
+  position: absolute;
+  width: 100%;
+  border-top: 3px solid var(--puregrey); }
