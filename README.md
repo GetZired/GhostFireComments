@@ -1,5 +1,5 @@
 ## Ghost Fire Comments for Ghost Blog
----
+
 Ghost Fire Comments, GFC, uses [Firebase](https://firebase.google.com/)'s [Cloud Store](https://firebase.google.com/docs/firestore/) database for real-time comments.
 
 GFC,  is suited for Ghost Blogs that are self-hosted where a tiny edit will be needed in the `post.hbs` and `screen.css` file. We hope once Ghost Apps becomes a thing, no theme file edits will be required.
@@ -15,7 +15,7 @@ To use any of the above, you will need to setup an external server where a `POST
 ---
 
 ## Installation
-----
+
 
 The best way to get started is to clone this repo in your Ghost Theme home directory:
 
@@ -33,7 +33,6 @@ The best way to get started is to clone this repo in your Ghost Theme home direc
 ---
 
 ## Todo
-----
 
 This is just a quick demonstration of a firebase commenting system. Code clean up is heavily needed. We do not recommend this to be used in a production environment crucial components will be changed/replace.
 
