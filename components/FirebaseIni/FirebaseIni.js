@@ -8,12 +8,12 @@ import AuthStateObserver from '../AuthStateObserver'
  */
 const FirebaseIni = () => {
 	firebase.initializeApp({
-		apiKey: "<API_KEY>",
-		authDomain: "<PROJECT_ID>.firebaseapp.com",
-		databaseURL: "https://<DATABASE_NAME>.firebaseio.com",
-		projectId: "<PROJECT_ID>",
-		storageBucket: "<BUCKET>.appspot.com",
-		messagingSenderId: "<SENDER_ID>"
+		apiKey: "AIzaSyBBQ4uEFxsYLJH-_5tEpwaC1DzGKrmaIKk",
+		authDomain: "get-zired.firebaseapp.com",
+		databaseURL: "https://get-zired.firebaseio.com",
+		projectId: "get-zired",
+		storageBucket: "get-zired.appspot.com",
+		messagingSenderId: "108439781601"
 	});
 
 	firebase.auth().onAuthStateChanged(AuthStateObserver);

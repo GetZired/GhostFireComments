@@ -515,6 +515,10 @@ var _AuthStateObserver2 = _interopRequireDefault(_AuthStateObserver);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+/**
+ * Initializing the Firebase App
+ * @see https://firebase.google.com/docs/web/setup
+ */
 var FirebaseIni = function FirebaseIni() {
 	_app2.default.initializeApp({
 		apiKey: "AIzaSyBBQ4uEFxsYLJH-_5tEpwaC1DzGKrmaIKk",

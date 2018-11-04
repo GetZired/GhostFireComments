@@ -11,7 +11,7 @@ const SaveTwitterUserData = (token, secret) => {
 	firebase.firestore().settings({timestampsInSnapshots: true});
 	const UserRef = firebase.firestore().collection("users")
 	const currentUser = firebase.auth().currentUser
-	const postUrl = '<POST_URL>'
+	const postUrl = 'http://localhost:4567/webhook/twitter'
 
 	axios.post(`${postUrl}/${token}/${secret}`)
 	.then(res => {
