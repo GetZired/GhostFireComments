@@ -521,12 +521,12 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  */
 var FirebaseIni = function FirebaseIni() {
 	_app2.default.initializeApp({
-		apiKey: "AIzaSyBBQ4uEFxsYLJH-_5tEpwaC1DzGKrmaIKk",
-		authDomain: "get-zired.firebaseapp.com",
-		databaseURL: "https://get-zired.firebaseio.com",
-		projectId: "get-zired",
-		storageBucket: "get-zired.appspot.com",
-		messagingSenderId: "108439781601"
+		apiKey: "<API_KEY>",
+		authDomain: "<PROJECT_ID>.firebaseapp.com",
+		databaseURL: "https://<DATABASE_NAME>.firebaseio.com",
+		projectId: "<PROJECT_ID>",
+		storageBucket: "<BUCKET>.appspot.com",
+		messagingSenderId: "<SENDER_ID>"
 	});
 
 	_app2.default.auth().onAuthStateChanged(_AuthStateObserver2.default);
@@ -1233,7 +1233,7 @@ var SaveTwitterUserData = function SaveTwitterUserData(token, secret) {
 	_app2.default.firestore().settings({ timestampsInSnapshots: true });
 	var UserRef = _app2.default.firestore().collection("users");
 	var currentUser = _app2.default.auth().currentUser;
-	var postUrl = 'http://localhost:4567/webhook/twitter';
+	var postUrl = '<POST_URL>';
 
 	_axios2.default.post(postUrl + '/' + token + '/' + secret).then(function (res) {
 		UserRef.doc(currentUser.uid).set({

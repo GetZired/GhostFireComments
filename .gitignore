@@ -1,2 +1,11 @@
 node_modules
 .DS_Store
+
+# Regenerated files. Run 'gulp' to build folder and files
+build
+
+# You must rename FirebaseIni_changeme to FirebaseIni.js
+FirebaseIni.js
+
+# You must rename SaveTwitterUserData_changeme to SaveTwitterUserData.js
+SaveTwitterUserData.js
