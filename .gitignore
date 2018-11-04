@@ -1,2 +1,5 @@
 node_modules
 .DS_Store
+
+# Regenerated files. Run 'gulp' to build folder and files
+build
