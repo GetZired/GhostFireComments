@@ -12,7 +12,7 @@ const CommentReplyForm = (id, masterCommentId, replyUserId) => {
 	input.setAttribute('data-masterreply-id', masterCommentId)
 	input.setAttribute('data-uid', replyUserId ) // reply to userid
 	formElement.setAttribute('action', "#")
-	formElement.setAttribute('class', "ghost-fire-comments__replyform")
+	formElement.setAttribute('class', "Comment__replyform")
 
 	// Create avatar div & image
 	let avatarDiv = document.createElement('div')

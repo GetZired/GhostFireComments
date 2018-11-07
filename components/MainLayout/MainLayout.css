@@ -1,8 +1,8 @@
-.ghost-fire-comments__container {
+.MainLayout {
   max-width: 840px;
   margin: 0 auto; }
 
-.ghost-fire-comments__container blockquote {
+.MainLayout blockquote {
   margin: 0 0 0 0.3em;
   padding: 0 0 0 0.6em;
   border-left: 0.3em solid var(--puregrey);
@@ -10,18 +10,18 @@
   font-weight: bold;
   font-style: italic; }
 
-.ghost-fire-comments__messages {
+.Comment__messages {
   padding: 20px 0 0 9%; }
   @media all and (max-width: 574px) {
-    .ghost-fire-comments__messages {
+    .Comment__messages {
       padding: 0; } }
 
-.ghost-fire-comments-heading-totals,
-.ghost-fire-comments-heading {
+.MainLayout__header__inner__heading-totals,
+.MainLayout__header__inner__heading {
   display: flex;
   align-items: center; }
 
-.ghost-fire-comments-header--count {
+.MainLayout__header--count {
   width: 60px;
   height: 60px;
   display: flex;
@@ -29,29 +29,29 @@
   border-radius: 100%;
   margin-right: 10px; }
 
-.ghost-fire-comments-header--count {
+.MainLayout__header--count {
   color: white;
   justify-content: center;
   align-items: center;
   font-size: 28px;
   font-weight: bold; }
 
-.ghost-fire-comments-heading {
+.MainLayout__header__inner__heading {
   position: relative; }
 
-.ghost-fire-comments-heading-totals {
+.MainLayout__header__inner__heading-totals {
   background: var(--white);
   position: relative;
   z-index: 9;
   width: 200px; }
 
-.ghost-fire-comments-heading h3 {
+.MainLayout__header__inner__heading h3 {
   margin: 0;
   font-weight: bold;
   font-size: 22px;
   color: var(--puregrey); }
 
-.ghost-fire-comments-heading--dash {
+.MainLayout__header__inner__heading--dash {
   display: block;
   position: absolute;
   width: 100%;

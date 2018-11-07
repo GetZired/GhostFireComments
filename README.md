@@ -23,7 +23,7 @@ The best way to get started is to clone this repo in your Ghost Theme home direc
     git clone ...
 
     # Add the following to your screen.css in the assets directory:
-    @import "../../ghost-fire-comments/components/**/*.css";
+    @import "../../Comment/components/**/*.css";
 
     # yarn/npm install
 
@@ -38,6 +38,6 @@ This is just a quick demonstration of a firebase commenting system. Code clean u
 
 ## Contribute
 
-We'd love to have your helping hand on `ghost-fire-comments`. There are many things to do before reaching version 1 such as updating this readme and many refactoring. Feel free to get in touch with me on [Twitter](https://www.twitter.com/mirmayne) if you have any questions.
+We'd love to have your helping hand on `Comment`. There are many things to do before reaching version 1 such as updating this readme and many refactoring. Feel free to get in touch with me on [Twitter](https://www.twitter.com/mirmayne) if you have any questions.
 
 Thanks!

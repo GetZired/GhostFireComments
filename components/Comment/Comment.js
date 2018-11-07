@@ -1,12 +1,12 @@
 const Comment = () => (
-	`<div class="ghost-fire-comments__block__inner">
-		<div class="ghost-fire-comments__avatar ghost-fire-comments__block__inner--left">
-			<img class="ghost-fire-comments__avatar--pic" src="" alt=""  />
+	`<div class="Comment">
+		<div class="Comment__avatar Comment--left">
+			<img class="Comment__avatar--pic" src="" alt=""  />
 		</div>
-		<div class="ghost-fire-comments__block__inner--right">
-			<div class="ghost-fire-comments__username"></div>
+		<div class="Comment--right">
+			<div class="Comment__username"></div>
 			<div class="message"></div>
-			<div class="ghost-fire-comments__postbits">
+			<div class="Comment__postbits">
 				<span>
 					<span>
 						<svg width="10" height="10" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">

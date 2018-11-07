@@ -1,5 +1,5 @@
 const SignInBlock = () => (
-	`<div hidden class="ghost-fire-comments__input-container--out">
+	`<div hidden class="SignInBlock">
 		<p>
 			You'll need to log in before leaving a comment 😊
 		</p>

@@ -45,8 +45,8 @@ var AuthStateObserver = function AuthStateObserver(user) {
 		//LoggedinHTMLContent()
 		console.log('user logged in');
 		(0, _LoadQuoteAndComment2.default)();
-		document.querySelector('.ghost-fire-comments__input-container--out').setAttribute('hidden', 'true');
-		document.querySelector('.ghost-fire-comments__input-container').classList.add('ghost-fire-comments__input-container--show');
+		document.querySelector('.SignInBlock').setAttribute('hidden', 'true');
+		document.querySelector('.CommentContainer').classList.add('CommentContainer--show');
 
 		// Set the user's profile pic and name.
 		document.querySelector('#autheduser').src = (0, _CurrentUserProfilePicture2.default)();
@@ -66,8 +66,8 @@ var AuthStateObserver = function AuthStateObserver(user) {
 		// User is signed out!
 		console.log('user logged out');
 		(0, _PostContentEventListeners2.default)();
-		document.querySelector('.ghost-fire-comments__input-container').classList.remove('ghost-fire-comments__input-container--show');
-		document.querySelector('.ghost-fire-comments__input-container--out').removeAttribute('hidden');
+		document.querySelector('.CommentContainer').classList.remove('CommentContainer--show');
+		document.querySelector('.SignInBlock').removeAttribute('hidden');
 
 		// Add event handler to the Twitter icon
 		document.querySelector('#sign-in').addEventListener('click', _SignInWithTwitter2.default);
@@ -93,7 +93,7 @@ module.exports = _AuthStateObserver2.default;
 "use strict";
 
 var Comment = function Comment() {
-	return "<div class=\"ghost-fire-comments__block__inner\">\n\t\t<div class=\"ghost-fire-comments__avatar ghost-fire-comments__block__inner--left\">\n\t\t\t<img class=\"ghost-fire-comments__avatar--pic\" src=\"\" alt=\"\"  />\n\t\t</div>\n\t\t<div class=\"ghost-fire-comments__block__inner--right\">\n\t\t\t<div class=\"ghost-fire-comments__username\"></div>\n\t\t\t<div class=\"message\"></div>\n\t\t\t<div class=\"ghost-fire-comments__postbits\">\n\t\t\t\t<span>\n\t\t\t\t\t<span>\n\t\t\t\t\t\t<svg width=\"10\" height=\"10\" viewBox=\"0 0 10 10\" xmlns=\"http://www.w3.org/2000/svg\">\n\t\t\t\t\t\t\t<path d=\"M4.334 9l.778-.778L2.89 6H6c1.834 0 3.334-1.5 3.334-3.333V1H8.223v1.667c0 1.222-1 2.222-2.222 2.222H2.89l2.222-2.222-.778-.778-3.167 3.167a.537.537 0 0 0 0 .777L4.334 9z\" stroke=\"#999\" fill=\"#999\" fill-rule=\"evenodd\"></path>\n\t\t\t\t\t\t</svg></span>\n\t\t\t\t\t<a class=\"replybtn\">Reply</a>\n\t\t\t\t</span>\n\t\t\t\t<span>\n\t\t\t\t\t<span></span>\n\t\t\t\t\t<a class=\"createdAt\"></a>\n\t\t\t\t</span>\n\t\t\t</div>\n\t\t</div>\n\t</div>";
+	return "<div class=\"Comment\">\n\t\t<div class=\"Comment__avatar Comment--left\">\n\t\t\t<img class=\"Comment__avatar--pic\" src=\"\" alt=\"\"  />\n\t\t</div>\n\t\t<div class=\"Comment--right\">\n\t\t\t<div class=\"Comment__username\"></div>\n\t\t\t<div class=\"message\"></div>\n\t\t\t<div class=\"Comment__postbits\">\n\t\t\t\t<span>\n\t\t\t\t\t<span>\n\t\t\t\t\t\t<svg width=\"10\" height=\"10\" viewBox=\"0 0 10 10\" xmlns=\"http://www.w3.org/2000/svg\">\n\t\t\t\t\t\t\t<path d=\"M4.334 9l.778-.778L2.89 6H6c1.834 0 3.334-1.5 3.334-3.333V1H8.223v1.667c0 1.222-1 2.222-2.222 2.222H2.89l2.222-2.222-.778-.778-3.167 3.167a.537.537 0 0 0 0 .777L4.334 9z\" stroke=\"#999\" fill=\"#999\" fill-rule=\"evenodd\"></path>\n\t\t\t\t\t\t</svg></span>\n\t\t\t\t\t<a class=\"replybtn\">Reply</a>\n\t\t\t\t</span>\n\t\t\t\t<span>\n\t\t\t\t\t<span></span>\n\t\t\t\t\t<a class=\"createdAt\"></a>\n\t\t\t\t</span>\n\t\t\t</div>\n\t\t</div>\n\t</div>";
 };
 
 module.exports = Comment;
@@ -123,7 +123,7 @@ var _Comment2 = _interopRequireDefault(_Comment);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var CommentBlock = function CommentBlock(withComment) {
-	return '<div class="ghost-fire-comments__block ' + withComment + '">\n\t\t' + (0, _Comment2.default)() + '\n\t\t<div class="ghost-fire-comments__block__replies"></div>\n\t</div>';
+	return '<div class="CommentBlock ' + withComment + '">\n\t\t' + (0, _Comment2.default)() + '\n\t\t<div class="CommentBlock__replies"></div>\n\t</div>';
 };
 
 module.exports = CommentBlock;
@@ -209,7 +209,7 @@ var _TrixEditor2 = _interopRequireDefault(_TrixEditor);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var CommentContainer = function CommentContainer() {
-	return '<div id="ghost-fire-comments__input-in" class="ghost-fire-comments__input-container">\n\t\t<div class="ghost-fire-comments__input-profile">\n\t\t\t\t<span class="ghost-fire-comments__input-profile-image">\n\t\t\t\t\t<img id="autheduser" src="" alt=""  />\n\t\t\t\t</span>\n\t\t</div>\n\t\t<span class="ghost-fire-comments__input-span">\n\t\t\t' + (0, _TrixEditor2.default)() + '\n\t\t</span>\n\t</div>';
+	return '<div id="CommentContainer-in" class="CommentContainer">\n\t\t<div class="CommentContainer__profile">\n\t\t\t<span class="CommentContainer__profile-image">\n\t\t\t\t<img id="autheduser" src="" alt=""  />\n\t\t\t</span>\n\t\t</div>\n\t\t<span class="CommentContainer__span">\n\t\t\t' + (0, _TrixEditor2.default)() + '\n\t\t</span>\n\t</div>';
 };
 
 module.exports = CommentContainer;
@@ -242,7 +242,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 
 
 var CommentProperties = function CommentProperties(div, obj, masterCommentId) {
-	div.querySelector('.ghost-fire-comments__username').textContent = obj.name;
+	div.querySelector('.Comment__username').textContent = obj.name;
 	div.querySelector('.createdAt').textContent = obj.createdAt;
 	div.querySelector('.replybtn').setAttribute('id', 'reply_' + obj.key);
 	div.querySelector('.replybtn').setAttribute('data-uid', obj.userId);
@@ -263,7 +263,7 @@ var CommentProperties = function CommentProperties(div, obj, masterCommentId) {
 					return el.remove();
 				});
 			};
-			removeElements(document.querySelectorAll(".ghost-fire-comments__replyform"));
+			removeElements(document.querySelectorAll(".Comment__replyform"));
 			var replyUserId = e.target.getAttribute('data-uid');
 			(0, _CommentReplyForm2.default)(e.currentTarget.id, masterCommentId, replyUserId);
 
@@ -363,7 +363,7 @@ var CommentReplyForm = function CommentReplyForm(id, masterCommentId, replyUserI
 	input.setAttribute('data-masterreply-id', masterCommentId);
 	input.setAttribute('data-uid', replyUserId); // reply to userid
 	formElement.setAttribute('action', "#");
-	formElement.setAttribute('class', "ghost-fire-comments__replyform");
+	formElement.setAttribute('class', "Comment__replyform");
 
 	// Create avatar div & image
 	var avatarDiv = document.createElement('div');
@@ -484,7 +484,7 @@ module.exports = _CurrentUserProfilePicture2.default;
 'use strict';
 
 var DisplayTotalComments = function DisplayTotalComments(size) {
-	document.querySelector('.ghost-fire-comments-header--count').innerHTML = size;
+	document.querySelector('.MainLayout__header--count').innerHTML = size;
 };
 
 module.exports = DisplayTotalComments;
@@ -693,21 +693,15 @@ var _SignInBlock = require('../SignInBlock');
 
 var _SignInBlock2 = _interopRequireDefault(_SignInBlock);
 
-var _IsUserSignedIn = require('../IsUserSignedIn');
-
-var _IsUserSignedIn2 = _interopRequireDefault(_IsUserSignedIn);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// and comment-logged-in
-
 var MainLayout = function MainLayout() {
-	return '<div class="ghost-fire-comments__container">\n\t\t<div class="ghost-fire-comments-header">\n\t\t\t<div class="ghost-fire-comments-header__inner">\n\t\t\t\t<div class="ghost-fire-comments-heading">\n\t\t\t\t\t<div class="ghost-fire-comments-heading-totals">\n\t\t\t\t\t\t<span class="ghost-fire-comments-header--count"></span> <h3>Comments</h3>\n\t\t\t\t\t</div>\n\t\t\t\t\t<span class="ghost-fire-comments-heading--dash"></span>\n\t\t\t\t</div>\n\n\t\t\t\t<div class="main-comment-header">\n\t\t\t\t\t<!-- JS Controlled -->\n\t\t\t\t\t' + (0, _SignInBlock2.default)() + '\n\t\t\t\t\t' + (0, _CommentContainer2.default)() + '\n\t\t\t\t</div>\n\t\t\t\t<!-- Renders all comments -->\n\t\t\t\t<div id="messages" class="ghost-fire-comments__messages"></div>\n\n\t\t\t\t<div id="user-container">\n\t\t\t\t\t<div hidden id="user-pic"></div>\n\t\t\t\t\t<div hidden id="user-name"></div>\n\t\t\t\t\t<button hidden id="sign-out" class="">\n\t\t\t\t\t\tSign-out\n\t\t\t\t\t</button>\n\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>';
+	return '<div class="MainLayout">\n\t\t<div class="MainLayout__header">\n\t\t\t<div class="MainLayout__header__inner">\n\t\t\t\t<div class="MainLayout__header__inner__heading">\n\t\t\t\t\t<div class="MainLayout__header__inner__heading-totals">\n\t\t\t\t\t\t<span class="MainLayout__header--count"></span> <h3>Comments</h3>\n\t\t\t\t\t</div>\n\t\t\t\t\t<span class="MainLayout__header__inner__heading--dash"></span>\n\t\t\t\t</div>\n\n\t\t\t\t<div class="main-comment-header">\n\t\t\t\t\t<!-- JS Controlled -->\n\t\t\t\t\t' + (0, _SignInBlock2.default)() + '\n\t\t\t\t\t' + (0, _CommentContainer2.default)() + '\n\t\t\t\t</div>\n\t\t\t\t<!-- Renders all comments -->\n\t\t\t\t<div id="messages" class="Comment__messages"></div>\n\n\t\t\t\t<div id="user-container">\n\t\t\t\t\t<div hidden id="user-pic"></div>\n\t\t\t\t\t<div hidden id="user-name"></div>\n\t\t\t\t\t<button hidden id="sign-out" class="">\n\t\t\t\t\t\tSign-out\n\t\t\t\t\t</button>\n\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>';
 };
 
 module.exports = MainLayout;
 
-},{"../CommentContainer":10,"../IsUserSignedIn":26,"../SignInBlock":58}],32:[function(require,module,exports){
+},{"../CommentContainer":10,"../SignInBlock":58}],32:[function(require,module,exports){
 'use strict';
 
 var _MainLayout = require('./MainLayout');
@@ -785,7 +779,7 @@ var OnNewCommentReplyFormSubmit = function OnNewCommentReplyFormSubmit(event) {
 	event.preventDefault();
 
 	var replyInputElement = event.target.querySelector('input');
-	var form = document.querySelector('.ghost-fire-comments__replyform');
+	var form = document.querySelector('.Comment__replyform');
 	var masterCommentId = replyInputElement.getAttribute('data-masterreply-id');
 	var replyUserId = replyInputElement.getAttribute("data-uid");
 	// Remove from DOM when finish
@@ -992,7 +986,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var RenderCommentReply = function RenderCommentReply(obj) {
 	var masterCommentId = obj.target;
-	var elementTargeForReplyAppend = document.getElementById(masterCommentId).lastElementChild; // .ghost-fire-comments__block__replies`
+	var elementTargeForReplyAppend = document.getElementById(masterCommentId).lastElementChild; // .CommentBlock__replies`
 	//return console.log(elementTargeForReplyAppend)
 	var div = document.getElementById(obj.key);
 
@@ -1000,7 +994,7 @@ var RenderCommentReply = function RenderCommentReply(obj) {
 
 		var container = document.createElement('div');
 
-		container.innerHTML = (0, _CommentBlock2.default)("ghost-fire-comments__block--withcomment");
+		container.innerHTML = (0, _CommentBlock2.default)("CommentBlock--withcomment");
 		div = container.firstChild;
 		div.setAttribute('id', obj.key);
 
@@ -1008,7 +1002,7 @@ var RenderCommentReply = function RenderCommentReply(obj) {
 	}
 
 	if (obj.picUrl) {
-		div.querySelector('.ghost-fire-comments__avatar--pic').src = obj.picUrl;
+		div.querySelector('.Comment__avatar--pic').src = obj.picUrl;
 	}
 
 	(0, _CommentProperties2.default)(div, obj, masterCommentId);
@@ -1058,7 +1052,7 @@ var RenderMainComment = function RenderMainComment(obj) {
 		messageListElement.appendChild(div);
 	}
 	if (obj.picUrl) {
-		div.querySelector('.ghost-fire-comments__avatar--pic').src = obj.picUrl;
+		div.querySelector('.Comment__avatar--pic').src = obj.picUrl;
 	}
 
 	(0, _CommentProperties2.default)(div, obj, masterCommentId);
@@ -1286,7 +1280,7 @@ module.exports = _ScrollToViewElement2.default;
 "use strict";
 
 var SignInBlock = function SignInBlock() {
-	return "<div hidden class=\"ghost-fire-comments__input-container--out\">\n\t\t<p>\n\t\t\tYou'll need to log in before leaving a comment \uD83D\uDE0A\n\t\t</p>\n\t\t<div>\n\t\t\t<svg id=\"sign-in\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 32 32\"><path d=\"M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z\"></path></svg>\n\t\t</div>\n\t\t<p>\n\t\t\tPersonal details will not be displayed. Please keep comments PG-12\n\t\t</p>\n\t</div>";
+	return "<div hidden class=\"SignInBlock\">\n\t\t<p>\n\t\t\tYou'll need to log in before leaving a comment \uD83D\uDE0A\n\t\t</p>\n\t\t<div>\n\t\t\t<svg id=\"sign-in\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 32 32\"><path d=\"M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z\"></path></svg>\n\t\t</div>\n\t\t<p>\n\t\t\tPersonal details will not be displayed. Please keep comments PG-12\n\t\t</p>\n\t</div>";
 };
 
 module.exports = SignInBlock;

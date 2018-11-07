@@ -19,7 +19,7 @@ const RenderMainComment = (obj) => {
 		messageListElement.appendChild(div);
 	}
 	if (obj.picUrl) {
-		div.querySelector('.ghost-fire-comments__avatar--pic').src = obj.picUrl;
+		div.querySelector('.Comment__avatar--pic').src = obj.picUrl;
 	}
 
 	CommentProperties(div, obj, masterCommentId)

@@ -1,18 +1,15 @@
 import CommentContainer from '../CommentContainer'
 import SignInBlock from '../SignInBlock'
-import IsUserSignedIn from '../IsUserSignedIn'
-// and comment-logged-in
 
 const MainLayout = () => (
-
-	`<div class="ghost-fire-comments__container">
-		<div class="ghost-fire-comments-header">
-			<div class="ghost-fire-comments-header__inner">
-				<div class="ghost-fire-comments-heading">
-					<div class="ghost-fire-comments-heading-totals">
-						<span class="ghost-fire-comments-header--count"></span> <h3>Comments</h3>
+	`<div class="MainLayout">
+		<div class="MainLayout__header">
+			<div class="MainLayout__header__inner">
+				<div class="MainLayout__header__inner__heading">
+					<div class="MainLayout__header__inner__heading-totals">
+						<span class="MainLayout__header--count"></span> <h3>Comments</h3>
 					</div>
-					<span class="ghost-fire-comments-heading--dash"></span>
+					<span class="MainLayout__header__inner__heading--dash"></span>
 				</div>
 
 				<div class="main-comment-header">
@@ -21,7 +18,7 @@ const MainLayout = () => (
 					${CommentContainer()}
 				</div>
 				<!-- Renders all comments -->
-				<div id="messages" class="ghost-fire-comments__messages"></div>
+				<div id="messages" class="Comment__messages"></div>
 
 				<div id="user-container">
 					<div hidden id="user-pic"></div>
@@ -34,7 +31,6 @@ const MainLayout = () => (
 			</div>
 		</div>
 	</div>`
-
 )
 
 module.exports = MainLayout

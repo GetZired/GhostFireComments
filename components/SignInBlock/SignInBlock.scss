@@ -1,0 +1,21 @@
+.SignInBlock {
+	width: 100%;
+	text-align: center;
+	background: var(--whitegrey);
+	padding: 12px 15px;
+	margin-top: 22px;
+	border-radius: 7px;
+}
+
+.SignInBlock p {
+	margin: 0;
+}
+
+.SignInBlock svg {
+	width: 40px;
+	cursor: pointer;
+}
+
+.SignInBlock svg:hover > path {
+	fill: var(--puregrey);
+}

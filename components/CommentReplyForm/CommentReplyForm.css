@@ -1,21 +1,21 @@
-.ghost-fire-comments__replyform {
+.Comment__replyform {
   display: flex;
   padding: 14px 0; }
 
-.ghost-fire-comments__replyform > div {
+.Comment__replyform > div {
   width: 38px; }
 
-.ghost-fire-comments__replyform img {
+.Comment__replyform img {
   width: 30px;
   height: 30px;
   border-radius: 100%;
   object-fit: cover; }
 
-.ghost-fire-comments__replyform input {
+.Comment__replyform input {
   width: 100%;
   padding-left: 5px;
   outline: 0;
   border: 1px solid #f4f8fb; }
 
-.ghost-fire-comments__replyform input:focus {
+.Comment__replyform input:focus {
   box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.08); }

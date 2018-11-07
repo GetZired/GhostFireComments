@@ -3,7 +3,7 @@ import CommentBlock from '../CommentBlock'
 
 const RenderCommentReply = (obj) => {
 	let masterCommentId = obj.target;
-	let elementTargeForReplyAppend = document.getElementById(masterCommentId).lastElementChild;// .ghost-fire-comments__block__replies`
+	let elementTargeForReplyAppend = document.getElementById(masterCommentId).lastElementChild;// .CommentBlock__replies`
 //return console.log(elementTargeForReplyAppend)
 	let div = document.getElementById(obj.key);
 
@@ -12,7 +12,7 @@ const RenderCommentReply = (obj) => {
 
 		let container = document.createElement('div');
 
-		container.innerHTML = CommentBlock("ghost-fire-comments__block--withcomment")
+		container.innerHTML = CommentBlock("CommentBlock--withcomment")
 		div = container.firstChild;
 		div.setAttribute('id', obj.key);
 
@@ -21,7 +21,7 @@ const RenderCommentReply = (obj) => {
 	}
 
 	if (obj.picUrl) {
-		div.querySelector('.ghost-fire-comments__avatar--pic').src = obj.picUrl;
+		div.querySelector('.Comment__avatar--pic').src = obj.picUrl;
 	}
 
 	CommentProperties(div, obj, masterCommentId)

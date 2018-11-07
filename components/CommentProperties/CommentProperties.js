@@ -3,7 +3,7 @@ import IsUserSignedIn from '../IsUserSignedIn'
 import CommentReplyForm from '../CommentReplyForm'
 
 const CommentProperties = (div, obj, masterCommentId) => {
-	div.querySelector('.ghost-fire-comments__username').textContent = obj.name;
+	div.querySelector('.Comment__username').textContent = obj.name;
 	div.querySelector('.createdAt').textContent = obj.createdAt;
 	div.querySelector('.replybtn').setAttribute('id', `reply_${obj.key}`);
 	div.querySelector('.replybtn').setAttribute('data-uid', obj.userId);
@@ -21,7 +21,7 @@ const CommentProperties = (div, obj, masterCommentId) => {
 		if ( IsUserSignedIn() ) {
 			// TODO: Without this, forms are added back to DOM after reply submits
 			const removeElements = (elms) => [...elms].forEach(el => el.remove());
-			removeElements( document.querySelectorAll(".ghost-fire-comments__replyform") );
+			removeElements( document.querySelectorAll(".Comment__replyform") );
 			let replyUserId = e.target.getAttribute('data-uid')
 			CommentReplyForm(e.currentTarget.id, masterCommentId, replyUserId)
 

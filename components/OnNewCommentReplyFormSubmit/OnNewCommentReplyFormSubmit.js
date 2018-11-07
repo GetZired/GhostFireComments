@@ -6,7 +6,7 @@ const OnNewCommentReplyFormSubmit = (event) => {
 	event.preventDefault();
 
 	let replyInputElement = event.target.querySelector('input')
-	let form = document.querySelector('.ghost-fire-comments__replyform')
+	let form = document.querySelector('.Comment__replyform')
 	let masterCommentId = replyInputElement.getAttribute('data-masterreply-id')
 	let replyUserId = replyInputElement.getAttribute("data-uid")
 	// Remove from DOM when finish

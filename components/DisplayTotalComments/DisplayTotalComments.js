@@ -1,5 +1,5 @@
 const DisplayTotalComments = (size) => {
-	document.querySelector('.ghost-fire-comments-header--count').innerHTML = size
+	document.querySelector('.MainLayout__header--count').innerHTML = size
 }
 
 module.exports = DisplayTotalComments

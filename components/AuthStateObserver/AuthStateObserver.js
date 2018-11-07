@@ -19,8 +19,8 @@ const AuthStateObserver = (user) => {
 		//LoggedinHTMLContent()
 		console.log('user logged in')
 		LoadQuoteAndComment()
-		document.querySelector('.ghost-fire-comments__input-container--out').setAttribute('hidden', 'true')
-		document.querySelector('.ghost-fire-comments__input-container').classList.add('ghost-fire-comments__input-container--show')
+		document.querySelector('.SignInBlock').setAttribute('hidden', 'true')
+		document.querySelector('.CommentContainer').classList.add('CommentContainer--show')
 
 		// Set the user's profile pic and name.
 		document.querySelector('#autheduser').src = CurrentUserProfilePicture();
@@ -39,8 +39,8 @@ const AuthStateObserver = (user) => {
 	} else { // User is signed out!
 		console.log('user logged out')
 		PostContentEventListeners()
-		document.querySelector('.ghost-fire-comments__input-container').classList.remove('ghost-fire-comments__input-container--show')
-		document.querySelector('.ghost-fire-comments__input-container--out').removeAttribute('hidden')
+		document.querySelector('.CommentContainer').classList.remove('CommentContainer--show')
+		document.querySelector('.SignInBlock').removeAttribute('hidden')
 
 		// Add event handler to the Twitter icon
 		document.querySelector('#sign-in').addEventListener('click', SignInWithTwitter)

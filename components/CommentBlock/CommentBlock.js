@@ -1,9 +1,9 @@
 import Comment from '../Comment'
 
 const CommentBlock = (withComment) => (
-	`<div class="ghost-fire-comments__block ${withComment}">
+	`<div class="CommentBlock ${withComment}">
 		${Comment()}
-		<div class="ghost-fire-comments__block__replies"></div>
+		<div class="CommentBlock__replies"></div>
 	</div>`
 )
 
