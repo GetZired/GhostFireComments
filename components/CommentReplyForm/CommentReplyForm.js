@@ -1,11 +1,16 @@
 import ProfilePictureUrl from '../ProfilePictureUrl'
 import OnNewCommentReplyFormSubmit from '../OnNewCommentReplyFormSubmit'
 
+// This needs serious refactoring!
 const CommentReplyForm = (id, masterCommentId, replyUserId) => {
-	let elId = id.split('reply_')[1]
-	let referenceNode = document.getElementById(elId)
-	let formElement = document.createElement('form')
-	let input = document.createElement('input')
+	const elId = id.split('reply_')[1]
+	const referenceNode = document.getElementById(elId)
+	const formElement = document.createElement('form')
+	const input = document.createElement('input')
+	// Create avatar div & image
+	const avatarDiv = document.createElement('div')
+	const avatarImage = document.createElement('img')
+
 	input.setAttribute('type', "text")
 	input.setAttribute('placeholder', "Leave a reply")
 	input.setAttribute('id', `replyinput_${elId}`)
@@ -13,21 +18,13 @@ const CommentReplyForm = (id, masterCommentId, replyUserId) => {
 	input.setAttribute('data-uid', replyUserId ) // reply to userid
 	formElement.setAttribute('action', "#")
 	formElement.setAttribute('class', "Comment__replyform")
-
-	// Create avatar div & image
-	let avatarDiv = document.createElement('div')
-	let avatarImage = document.createElement('img')
 	avatarImage.src = ProfilePictureUrl();
-
 	avatarDiv.appendChild(avatarImage)
 	formElement.appendChild(avatarDiv)
 	formElement.appendChild(input)
 
-	//	referenceNode.parentNode.insertBefore(formElement, referenceNode.nextSibling);
-
-	let nextReferencedNode = referenceNode.getElementsByTagName('div')[0]
+	const nextReferencedNode = referenceNode.getElementsByTagName('div')[0]
 	nextReferencedNode.parentNode.insertBefore(formElement, nextReferencedNode.nextSibling);
-
 	formElement.addEventListener('submit', OnNewCommentReplyFormSubmit)
 }
 

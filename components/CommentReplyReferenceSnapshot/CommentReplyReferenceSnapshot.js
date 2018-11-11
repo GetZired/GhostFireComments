@@ -8,10 +8,10 @@ const CommentReplyReferenceSnapshot = (commentReplyId, masterCommentId) => {
 	const COMMENT_REPLIES_REF = firebase.firestore().collection("commentReplies")
 
 	COMMENT_REPLIES_REF.doc(commentReplyId).onSnapshot(commentReply => {
-		let replyData = commentReply.data();
+		const replyData = commentReply.data();
 		replyData.replyToUser.get().then(user => {
 
-			let replyOjbect = {
+			const replyOjbect = {
 				target: masterCommentId, // for the reply item
 				key: commentReplyId,
 				name: replyData.name,

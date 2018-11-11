@@ -15,6 +15,10 @@ const CommentProperties = (div, obj, masterCommentId) => {
 		messageElement.innerHTML = obj.text;
 	}
 
+	// Displays users profile picture
+	if (obj.picUrl) {
+		div.querySelector('.Comment__avatar--pic').src = obj.picUrl;
+	}
 
 	// Must be signed in before making a reply
 	document.getElementById(`reply_${obj.key}`).addEventListener("click", (e) => {

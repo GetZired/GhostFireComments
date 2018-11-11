@@ -254,6 +254,11 @@ var CommentProperties = function CommentProperties(div, obj, masterCommentId) {
 		messageElement.innerHTML = obj.text;
 	}
 
+	// Displays users profile picture
+	if (obj.picUrl) {
+		div.querySelector('.Comment__avatar--pic').src = obj.picUrl;
+	}
+
 	// Must be signed in before making a reply
 	document.getElementById('reply_' + obj.key).addEventListener("click", function (e) {
 		if ((0, _IsUserSignedIn2.default)()) {
@@ -352,11 +357,16 @@ var _OnNewCommentReplyFormSubmit2 = _interopRequireDefault(_OnNewCommentReplyFor
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+// This needs serious refactoring!
 var CommentReplyForm = function CommentReplyForm(id, masterCommentId, replyUserId) {
 	var elId = id.split('reply_')[1];
 	var referenceNode = document.getElementById(elId);
 	var formElement = document.createElement('form');
 	var input = document.createElement('input');
+	// Create avatar div & image
+	var avatarDiv = document.createElement('div');
+	var avatarImage = document.createElement('img');
+
 	input.setAttribute('type', "text");
 	input.setAttribute('placeholder', "Leave a reply");
 	input.setAttribute('id', 'replyinput_' + elId);
@@ -364,21 +374,13 @@ var CommentReplyForm = function CommentReplyForm(id, masterCommentId, replyUserI
 	input.setAttribute('data-uid', replyUserId); // reply to userid
 	formElement.setAttribute('action', "#");
 	formElement.setAttribute('class', "Comment__replyform");
-
-	// Create avatar div & image
-	var avatarDiv = document.createElement('div');
-	var avatarImage = document.createElement('img');
 	avatarImage.src = (0, _ProfilePictureUrl2.default)();
-
 	avatarDiv.appendChild(avatarImage);
 	formElement.appendChild(avatarDiv);
 	formElement.appendChild(input);
 
-	//	referenceNode.parentNode.insertBefore(formElement, referenceNode.nextSibling);
-
 	var nextReferencedNode = referenceNode.getElementsByTagName('div')[0];
 	nextReferencedNode.parentNode.insertBefore(formElement, nextReferencedNode.nextSibling);
-
 	formElement.addEventListener('submit', _OnNewCommentReplyFormSubmit2.default);
 };
 
@@ -464,7 +466,7 @@ require('firebase/auth');
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var CurrentUserProfilePicture = function CurrentUserProfilePicture() {
-	return _app2.default.auth().currentUser.photoURL || '/images/profile_placeholder.png';
+	return _app2.default.auth().currentUser.photoURL || '/images/profile_placeholder.png'; // not implemented
 };
 
 module.exports = CurrentUserProfilePicture;
@@ -657,11 +659,11 @@ module.exports = _LoadComments2.default;
 },{"./LoadComments":27}],29:[function(require,module,exports){
 'use strict';
 
+// TODO: Rename to tooltip
 var LoadQuoteAndComment = function LoadQuoteAndComment() {
 	var postContent = document.querySelector('.post-content');
 	var postContentInnerHTML = postContent.innerHTML;
 	postContent.style = 'position:relative';
-
 	postContent.innerHTML = postContentInnerHTML + tooltipHtml();
 };
 
@@ -775,6 +777,9 @@ var _IsUserSignedIn2 = _interopRequireDefault(_IsUserSignedIn);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+/**
+ * Creating a new comment reply
+ */
 var OnNewCommentReplyFormSubmit = function OnNewCommentReplyFormSubmit(event) {
 	event.preventDefault();
 
@@ -782,6 +787,7 @@ var OnNewCommentReplyFormSubmit = function OnNewCommentReplyFormSubmit(event) {
 	var form = document.querySelector('.Comment__replyform');
 	var masterCommentId = replyInputElement.getAttribute('data-masterreply-id');
 	var replyUserId = replyInputElement.getAttribute("data-uid");
+
 	// Remove from DOM when finish
 	form.parentNode.removeChild(form);
 
@@ -987,22 +993,14 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var RenderCommentReply = function RenderCommentReply(obj) {
 	var masterCommentId = obj.target;
 	var elementTargeForReplyAppend = document.getElementById(masterCommentId).lastElementChild; // .CommentBlock__replies`
-	//return console.log(elementTargeForReplyAppend)
 	var div = document.getElementById(obj.key);
 
 	if (!div) {
-
 		var container = document.createElement('div');
-
 		container.innerHTML = (0, _CommentBlock2.default)("CommentBlock--withcomment");
 		div = container.firstChild;
 		div.setAttribute('id', obj.key);
-
 		elementTargeForReplyAppend.appendChild(div);
-	}
-
-	if (obj.picUrl) {
-		div.querySelector('.Comment__avatar--pic').src = obj.picUrl;
 	}
 
 	(0, _CommentProperties2.default)(div, obj, masterCommentId);
@@ -1051,9 +1049,6 @@ var RenderMainComment = function RenderMainComment(obj) {
 		div.setAttribute('id', obj.key);
 		messageListElement.appendChild(div);
 	}
-	if (obj.picUrl) {
-		div.querySelector('.Comment__avatar--pic').src = obj.picUrl;
-	}
 
 	(0, _CommentProperties2.default)(div, obj, masterCommentId);
 };
@@ -1080,6 +1075,10 @@ var _MainLayout2 = _interopRequireDefault(_MainLayout);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+/**
+ * Renders comments main layout
+ * @return HTML
+ */
 var RenderMainLayout = function RenderMainLayout() {
 	var renderElement = document.querySelector('#render-ghost-fire-comments');
 	var container = document.createElement('div');

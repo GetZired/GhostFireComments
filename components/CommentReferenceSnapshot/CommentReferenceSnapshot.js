@@ -3,15 +3,13 @@ import 'firebase/firestore'
 import RenderMainComment from '../RenderMainComment'
 import TimeAgo from '../TimeAgo'
 
-
-
 const CommentReferenceSnapshot = (commentId) => {
 	firebase.firestore().settings({timestampsInSnapshots: true});
 	const COMMENT_REF = firebase.firestore().collection("comments")
 
 	COMMENT_REF.doc(commentId).onSnapshot(comment => {
-		let commentData = comment.data()
-		let commentOjbect = {
+		const commentData = comment.data()
+		const commentOjbect = {
 			key: commentId,
 			name: commentData.name,
 			text: commentData.text,

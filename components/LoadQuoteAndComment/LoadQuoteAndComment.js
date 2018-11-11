@@ -1,9 +1,8 @@
+// TODO: Rename to tooltip
 const LoadQuoteAndComment = () => {
 	const postContent = document.querySelector('.post-content')
 	const postContentInnerHTML = postContent.innerHTML
 	postContent.style = 'position:relative'
-
-
 	postContent.innerHTML = (postContentInnerHTML + tooltipHtml())
 }
 
